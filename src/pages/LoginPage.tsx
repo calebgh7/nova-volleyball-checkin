@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { AlertCircle } from 'lucide-react';
 import NovaLogo from '../components/NovaLogo';
@@ -125,12 +126,12 @@ export default function LoginPage() {
           <div className="mt-8 pt-6 border-t border-white/10">
             <div className="text-center">
               <p className="text-white/60 text-sm mb-3">Need to check in athletes?</p>
-              <a
-                href="/checkin"
+              <Link
+                to="/checkin"
                 className="inline-flex items-center px-4 py-2 text-sm font-medium text-nova-cyan hover:text-white transition-colors duration-200 hover:bg-nova-cyan/10 rounded-xl"
               >
                 Quick Check-In (No Login Required)
-              </a>
+              </Link>
             </div>
           </div>
         </div>

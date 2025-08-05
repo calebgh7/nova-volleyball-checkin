@@ -44,6 +44,7 @@ function AppRoutes() {
           <LoginPage />
         </PublicRoute>
       } />
+      <Route path="/checkin" element={<CheckInPage />} />
       <Route path="/" element={
         <ProtectedRoute>
           <Layout />
