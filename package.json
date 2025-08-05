@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "dist/server/index.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -10,7 +11,8 @@
     "preview": "vite preview",
     "server": "tsx server/index.ts",
     "server:dev": "tsx watch server/index.ts",
-    "start": "concurrently \"npm run server:dev\" \"npm run dev\"",
+    "start": "node dist/server/index.js",
+    "dev:start": "concurrently \"npm run server:dev\" \"npm run dev\"",
     "build:server": "tsc --project tsconfig.server.json",
     "start:prod": "node dist/server/index.js",
     "heroku-postbuild": "npm run build && npm run build:server"

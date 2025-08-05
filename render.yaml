@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: nova-checkin
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build && npm run build:server
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        value: ./database.sqlite
