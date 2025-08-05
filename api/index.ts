@@ -21,14 +21,14 @@ app.use(express.json());
 // Initialize database
 dbManager.initialize().catch(console.error);
 
-// Routes
-app.use('/api/athletes', athleteRoutes);
-app.use('/api/events', eventRoutes);
-app.use('/api/checkins', checkinRoutes);
-app.use('/api/auth', authRoutes);
+// Routes - no need for /api prefix since Vercel routes already handle that
+app.use('/athletes', athleteRoutes);
+app.use('/events', eventRoutes);
+app.use('/checkins', checkinRoutes);
+app.use('/auth', authRoutes);
 
 // Health check
-app.get('/api/health', (req, res) => {
+app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
