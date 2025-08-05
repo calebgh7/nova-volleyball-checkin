@@ -3,10 +3,13 @@ services:
     name: nova-volleyball-checkin
     env: node
     plan: free
-    buildCommand: npm install && npm run build && npm run build:server
+    buildCommand: npm ci && npm install node-gyp -g && npm rebuild sqlite3 && npm run build && npm run build:server
     startCommand: npm run start:prod
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 10000
+      - key: PYTHON
+        value: /opt/render/project/.pythonenv/bin/python
+    runtime: node
