@@ -61,8 +61,21 @@ class DatabaseManager {
   private db: Database | null = null;
 
   async initialize(): Promise<void> {
+    // Use data directory for production, or current directory for development
+    const dataDir = process.env.NODE_ENV === 'production' 
+      ? path.join(process.cwd(), 'data')
+      : process.cwd();
+    
+    // Ensure data directory exists in production
+    if (process.env.NODE_ENV === 'production') {
+      const fs = await import('fs');
+      if (!fs.existsSync(dataDir)) {
+        fs.mkdirSync(dataDir, { recursive: true });
+      }
+    }
+
     this.db = await open({
-      filename: path.join(process.cwd(), 'volleyball_checkin.db'),
+      filename: path.join(dataDir, 'volleyball_checkin.db'),
       driver: sqlite3.Database
     });
 
