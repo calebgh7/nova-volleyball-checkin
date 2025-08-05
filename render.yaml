@@ -11,11 +11,7 @@ services:
       - key: PORT
         value: 10000
       - key: JWT_SECRET
-        generateValue: true
-    disk:
-      name: volleyball-data
-      mountPath: /opt/render/project/src/data
-      sizeGB: 1- type: web
+        generateValue: true- type: web
     name: nova-checkin
     env: node
     plan: free
