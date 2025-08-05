@@ -2,14 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { dbManager } from '../server/database';
 import athleteRoutes from '../server/routes/athletes';
 import eventRoutes from '../server/routes/events';
 import checkinRoutes from '../server/routes/checkins';
 import authRoutes from '../server/routes/auth';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
